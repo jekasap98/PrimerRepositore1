@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evgenii Sapozhnikov</title>
+</head>
+<body>
+    <script>
+        var str = "JavaScript is so fun";
+        var words = str.split(' ').length;
+        document.write(str, '<br/>');
+        document.write(str.length, '<br/>');
+        document.write(words, '<br/>');
+        document.write(document.location.href, '<br/>');
+        document.write(document.location.protocol, '<br/>');
+        var url = document.location.pathname;
+        var fileName = url.substring(url.lastIndexOf('/') + 1);
+        var fileExtension = fileName.split('.')[1];
+        document.write(fileName, '<br/>');
+        document.write(fileExtension, '<br/>');
+        var stringUrlParameters = document.location.search.split('').slice(1).join('');
+        var arrayUrlParameters = stringUrlParameters.split('&');
+        if(arrayUrlParameters[0] != '')
+        {
+            var objUrlParameters = arrayUrlParameters.reduce((obj, curr) => ({...obj, [curr.split('=')[0]]: curr.split('=')[1]}), {});
+            for(let i = 0; i < Object.keys(objUrlParameters).length; i++){
+                let key = Object.keys(objUrlParameters)[i];
+                let value = Object.values(objUrlParameters)[i];
+                document.write(key, ': ');
+                document.write(value, '<br/>');
+            }
+        }
+    </script>
+    <p id='freddie'>Freddie Mercury and a Cat</p>
+    <a href='#letov'><p>Go see Egor Letov and a Cat</p></a>
+    <img src='images/1.jpg' alt='Freddie' id='firstImage' width='400' height='550' style='display:block'>
+    <br/>
+    <p id='david'>David Bowie and a Cat</p>
+    <a href='#justCat'><p>Go see just a Cat</p></a>
+    <img src='images/2.jpg' alt='David' id='secondImage' width='400' height='550' style='display:block'>
+    <br/>
+    <p id='letov'>Egor Letov and a Cat</p>
+    <a href='#david'><p>Go see David Bowie and a Cat</p></a>
+    <img src='images/3.jpg' alt='Letov' id='thirdImage' width='450' height='550' style='display:block'>
+    <br/>
+    <p id='justCat'>Just a Cat</p>
+    <a href='#freddie'><p>Go see Freddie Mercury and a Cat</p></a>
+    <img src='images/4.jpg' alt='Cat' id='fourthImage' width='600' height='550' style='display:block'>
+</body>
+</html>
